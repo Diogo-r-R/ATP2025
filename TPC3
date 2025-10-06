@@ -1,3 +1,7 @@
+
+#jogo do adivinha
+
+
 print("jogo do adivinha")
 jogador=int(input('Escreve "1" para seres a escolher um número e o computador a adivinhar e "2" para ser o computador a escolher e tu a adivinhares: '))
 
@@ -71,7 +75,132 @@ elif jogador!=(1,3):
     print(f"{jogador} é inválido")
 
 
+#programa com lista de números
+
+def criaLista(N):
+    import random
+    lista = []
+    for _ in range(N):
+        lista.append(random.randint(1, 100))
+    return lista
+
+
+def leLista(N):
+    lista = []
+    for i in range(N):
+        num = int(input(f"Introduza o número {i+1}: "))
+        lista.append(num)
+    return lista
+
+def somaLista(lista):
+    soma = 0
+    for x in lista:
+        soma += x
+    return soma
+
+
+def mediaLista(lista):
+    if len(lista) == 0:
+        return 0
+    return somaLista(lista) / len(lista)
+
+
+def maiorLista(lista):
+    if not lista:
+        return None
+    maior = lista[0]
+    for x in lista:
+        if x > maior:
+            maior = x
+    return maior
+
+
+def menorLista(lista):
+
+    if not lista:
+        return None
+    menor = lista[0]
+    for x in lista:
+        if x < menor:
+            menor = x
+    return menor
+
+
+def estaOrdenadaCrescente(lista):
+    for i in range(len(lista) - 1):
+        if lista[i] > lista[i + 1]:
+            return False
+    return True
+
+
+def estaOrdenadaDecrescente(lista):
+    for i in range(len(lista) - 1):
+        if lista[i] < lista[i + 1]:
+            return False
+    return True
+
+
+def procuraElemento(lista, elem):
+    for x in lista:
+        if x == elem:
+            return True
+    return False
+
+
+def menu():
+    lista = []
+    while True:
+        print("\nMenu:")
+        print("(1) Criar Lista")
+        print("(2) Ler Lista")
+        print("(3) Soma")
+        print("(4) Média")
+        print("(5) Maior")
+        print("(6) Menor")
+        print("(7) Está ordenada por ordem crescente")
+        print("(8) Está ordenada por ordem decrescente")
+        print("(9) Procurar um elemento")
+        print("(0) Sair")
+
+        op = input("Escolha uma opção: ")
+
+        if op == "1":
+            N = int(input("Introduza o valor de N: "))
+            lista = criaLista(N)
+            print("Lista criada:", lista)
+        elif op == "2":
+            N = int(input("introduza quantos números quer adicionar a uma lista: "))
+            lista = leLista(N)
+            print("Lista criada:", lista)
+        elif op == "3":
+            print("Soma:", somaLista(lista))
+        elif op == "4":
+            print("Média:", mediaLista(lista))
+        elif op == "5":
+            print("Maior elemento:", maiorLista(lista))
+        elif op == "6":
+            print("Menor elemento:", menorLista(lista))
+        elif op == "7":
+            print("Ordenada por ordem crescente?", estaOrdenadaCrescente(lista))
+        elif op == "8":
+            print("Ordenada por ordem decrescente?", estaOrdenadaDecrescente(lista))
+        elif op == "9":
+            elem = int(input("Elemento a procurar: "))
+            if procuraElemento(lista, elem):
+                print("Elemento encontrado!")
+            else:
+                print("Elemento não encontrado.")
+        elif op == "0":
+            print("A sair... Até à próxima!")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+menu()
+
+
 
 
                 
             
+
