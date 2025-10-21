@@ -1,0 +1,94 @@
+turma=[]
+notas=[]
+nome = ""
+id = 0
+aluno=()
+
+def criar_turma():
+    turma
+    print("Você criou uma nova turma")
+    return turma
+
+def adicionar_aluno(turma, aluno):
+    nome = input("Insira o nome do aluno: ")
+    id = input("Insira a ID do aluno (A*****): ")
+    notaTPC = float(input("Insira a nota do TPC: "))
+    notaProjeto = float(input("Insira a nota do Projeto: "))
+    notaTeste = float(input("Insira a nota do Teste: "))
+    notas = [notaTPC, notaProjeto, notaTeste]
+    aluno = (nome, id, notas)
+    turma.append(aluno)
+    print("Aluno adicionado à turma")
+    return turma
+
+def listar_turma(turma):
+    i=0
+    while i < len(turma):
+        print(turma[i])
+        i = i + 1
+    #for aluno in turma:
+        #print(aluno)
+
+def consultar_aluno(id, turma, aluno):
+    id_aluno = input("Insira a id do aluno: ")
+    for aluno in turma:
+        if id_aluno == aluno[1]:
+            print(aluno)
+
+def guardar_turma(turma):
+    file = open("turma.txt", "w")
+    res=""
+    for aluno in turma:
+        nome = aluno[0]
+        id = aluno[1]
+        notas = aluno[2]
+        res = res + f"{nome} | {id} | {notas}\n"
+    file.write(res)
+    file.close()
+    print("Turma guardada")
+
+def carregar_turma():
+    file = open("turma.txt", "r")
+    turma=[]
+    for linha in file:
+        info = linha.split("\n")
+        info = linha.split(" | ")
+        nome = info[0]
+        id = info[1]
+        notas = info[2]
+        aluno = (nome, id, notas)
+        turma.append(aluno)
+    file.close()
+    print("Turma carregada")
+    return turma
+
+def menu():
+    print("Menu da Turma")
+    print("1 - Criar Turma")
+    print("2 - Adicionar Aluno")
+    print("3 - Listar Turma")
+    print("4 - Consultar Aluno")
+    print("5 - Guardar Turma")
+    print("0 - Sair")
+
+    
+
+menu()
+while True:
+    opcao = int(input("Selecione uma opção: "))
+    if opcao == 1:
+        criar_turma()
+    elif opcao == 2:
+        adicionar_aluno(turma, aluno)
+    elif opcao == 3:
+        listar_turma(turma)
+    elif opcao == 4:
+        consultar_aluno(id, turma, aluno)
+    elif opcao == 5:
+        guardar_turma(turma)
+    elif opcao == 6:
+        carregar_turma()
+    elif opcao == 0:
+        break
+    else:
+        print("Opção inválida. Tente novamente")
