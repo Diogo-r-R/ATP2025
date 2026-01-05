@@ -97,4 +97,9 @@
 
 - É possível observar, de forma geral, uma tendência progressiva para a diminuição do tempo de ocupação, do tamanho das filas e do tempo necessário após o fim da geração de chegadas. Verifica-se também um aumento acentuado do tempo após o fim da geração de chegadas quando o número de médicos é apenas 2, concluindo-se que o número mínimo de médicos aconselhável para evitar a sobrecarga do sistema hospitalar é 3.
 
+
 - É importante realçar que a determinação dos tempos de chegada, de atendimento ao balcão e da duração das consultas é efetuada com base em distribuições estatísticas. Deste modo existe alguma variabilidade nos resultados entre simulações distintas com parâmetros idênticos, o que deve ser tido em conta na análise e avaliação dos resultados.
+
+Projeto_realizado_por=
+{Diogo Rocha: a111446,
+Gonçalo Sousa: a108335}
